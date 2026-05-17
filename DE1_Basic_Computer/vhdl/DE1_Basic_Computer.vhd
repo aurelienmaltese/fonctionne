@@ -132,17 +132,6 @@ architecture DE1_Basic_Computer_rtl of DE1_Basic_Computer is
 				 signal c1 : OUT STD_LOGIC
 			 );
 	end component;
-	
-	component reg16_avalon_interface
-		port (
-				clk_clk : IN STD_LOGIC;
-				resetn_reset_n : IN STD_LOGIC;
-				to_hex_export : OUT STD_LOGIC_VECTOR(15 DOWNTO 0)
-			);
-	end component;
-	
-	
-	
 
 -------------------------------------------------------------------------------
 --                           Parameter Declarations                          --

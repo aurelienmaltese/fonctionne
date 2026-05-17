@@ -208,8 +208,8 @@ applicable agreement for further details.
 	(port
 		(pt 0 840)
 		(output)
-		(text "to_hex_export[15..0]" (rect 0 0 81 12)(font "Arial" (font_size 8)))
-		(text "to_hex_export[15..0]" (rect 4 829 124 840)(font "Arial" (font_size 8)))
+		(text "to_hex_readdata[15..0]" (rect 0 0 90 12)(font "Arial" (font_size 8)))
+		(text "to_hex_readdata[15..0]" (rect 4 829 136 840)(font "Arial" (font_size 8)))
 		(line (pt 0 840)(pt 256 840)(line_width 3))
 	)
 	(port
@@ -284,7 +284,7 @@ applicable agreement for further details.
 		(text "HEX2" (rect 261 779 546 1568)(font "Arial" (color 0 0 0)))
 		(text "HEX3" (rect 261 795 546 1600)(font "Arial" (color 0 0 0)))
 		(text "to_hex" (rect 218 811 472 1635)(font "Arial" (color 128 0 0)(font_size 9)))
-		(text "export" (rect 261 835 558 1680)(font "Arial" (color 0 0 0)))
+		(text "readdata" (rect 261 835 570 1680)(font "Arial" (color 0 0 0)))
 		(text " nios_system " (rect 518 856 1114 1722)(font "Arial" ))
 		(line (pt 257 52)(pt 257 172)(line_width 1))
 		(line (pt 258 52)(pt 258 172)(line_width 1))
