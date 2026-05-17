@@ -1,0 +1,9 @@
+Création d'un registre 16 bits personnalisé (`reg16_component`) avec interface Avalon MM.
+Intégration dans un système embarqué sur carte FPGA Altera DE-series.
+Export de la valeur du registre vers les affichages 7-segments (`HEX0-HEX3`) via un Conduit Avalon.
+
+Le système utilise un bus Avalon Interconnect pour connecter :
+- Un processeur Nios II (maître)
+- Un registre 16 bits (esclave Avalon MM)
+- La SDRAM et SRAM (esclaves Avalon MM)
+- Les ffichages 7-segments (`HEX0-HEX3`) via un Conduit

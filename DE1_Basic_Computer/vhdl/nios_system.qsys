@@ -199,35 +199,6 @@
          type = "long";
       }
    }
-   element Pushbuttons.avalon_parallel_port_slave
-   {
-      datum _lockedAddress
-      {
-         value = "1";
-         type = "boolean";
-      }
-   }
-   element Expansion_JP2.avalon_parallel_port_slave
-   {
-      datum _lockedAddress
-      {
-         value = "1";
-         type = "boolean";
-      }
-   }
-   element HEX3_HEX0.avalon_parallel_port_slave
-   {
-      datum _lockedAddress
-      {
-         value = "1";
-         type = "boolean";
-      }
-      datum baseAddress
-      {
-         value = "268435488";
-         type = "long";
-      }
-   }
    element Green_LEDs.avalon_parallel_port_slave
    {
       datum _lockedAddress
@@ -254,12 +225,41 @@
          type = "long";
       }
    }
+   element Pushbuttons.avalon_parallel_port_slave
+   {
+      datum _lockedAddress
+      {
+         value = "1";
+         type = "boolean";
+      }
+   }
    element Expansion_JP1.avalon_parallel_port_slave
    {
       datum _lockedAddress
       {
          value = "1";
          type = "boolean";
+      }
+   }
+   element Expansion_JP2.avalon_parallel_port_slave
+   {
+      datum _lockedAddress
+      {
+         value = "1";
+         type = "boolean";
+      }
+   }
+   element HEX3_HEX0.avalon_parallel_port_slave
+   {
+      datum _lockedAddress
+      {
+         value = "1";
+         type = "boolean";
+      }
+      datum baseAddress
+      {
+         value = "268435488";
+         type = "long";
       }
    }
    element Serial_port.avalon_rs232_slave
@@ -296,6 +296,14 @@
          type = "long";
       }
    }
+   element clk
+   {
+      datum _sortIndex
+      {
+         value = "4";
+         type = "int";
+      }
+   }
    element clk.clk
    {
       datum clock_domain
@@ -304,30 +312,12 @@
          type = "String";
       }
    }
-   element clk
-   {
-      datum _sortIndex
-      {
-         value = "4";
-         type = "int";
-      }
-      datum sopceditor_expanded
-      {
-         value = "1";
-         type = "boolean";
-      }
-   }
    element cpu
    {
       datum _sortIndex
       {
          value = "0";
          type = "int";
-      }
-      datum sopceditor_expanded
-      {
-         value = "1";
-         type = "boolean";
       }
    }
    element cpu.jtag_debug_module
@@ -351,7 +341,7 @@
          type = "int";
       }
    }
-   element Interval_timer.s1
+   element Onchip_memory.s1
    {
       datum _lockedAddress
       {
@@ -360,7 +350,7 @@
       }
       datum baseAddress
       {
-         value = "268443648";
+         value = "150994944";
          type = "long";
       }
    }
@@ -377,7 +367,7 @@
          type = "long";
       }
    }
-   element Onchip_memory.s1
+   element Interval_timer.s1
    {
       datum _lockedAddress
       {
@@ -386,7 +376,7 @@
       }
       datum baseAddress
       {
-         value = "150994944";
+         value = "268443648";
          type = "long";
       }
    }
@@ -417,7 +407,7 @@
       }
       datum sopceditor_expanded
       {
-         value = "1";
+         value = "0";
          type = "boolean";
       }
    }
@@ -436,7 +426,7 @@
  <parameter name="projectName">DE1_Basic_Computer.qpf</parameter>
  <parameter name="sopcBorderPoints" value="false" />
  <parameter name="systemHash" value="1" />
- <parameter name="timeStamp" value="1778575424818" />
+ <parameter name="timeStamp" value="1779035702469" />
  <parameter name="useTestBenchNamingPattern" value="false" />
  <instanceScript></instanceScript>
  <interface
@@ -1316,7 +1306,7 @@
  <connection
    kind="reset"
    version="13.0"
-   start="cpu.jtag_debug_module_reset"
+   start="clk.clk_reset"
    end="reg16_avalon_interface_0.reset_sink" />
  <interconnectRequirement for="$system" name="qsys_mm.clockCrossingAdapter" value="HANDSHAKE" />
  <interconnectRequirement for="$system" name="qsys_mm.maxAdditionalLatency" value="0" />
