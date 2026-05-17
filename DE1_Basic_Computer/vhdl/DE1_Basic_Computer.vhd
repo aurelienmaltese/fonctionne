@@ -59,8 +59,14 @@ port (
 	DRAM_CS_N			 : out std_logic;
 	DRAM_WE_N			 : out std_logic;
 	DRAM_UDQM			 : buffer std_logic;
-	DRAM_LDQM			 : buffer std_logic
-	);
+	DRAM_LDQM			 : buffer std_logic;
+
+-- Motor PWM outputs
+	MOTOR_PWM_LEFT      : out std_logic;
+	MOTOR_PWM_RIGHT     : out std_logic;	 
+	MOTOR_DIR_LEFT      : out std_logic;
+	MOTOR_DIR_RIGHT     : out std_logic
+);
 end DE1_Basic_Computer;
 
 
@@ -119,9 +125,16 @@ architecture DE1_Basic_Computer_rtl of DE1_Basic_Computer is
                  signal zs_cke_from_the_sdram : OUT STD_LOGIC;
                  signal zs_cs_n_from_the_sdram : OUT STD_LOGIC;
                  signal zs_dq_to_and_from_the_sdram : INOUT STD_LOGIC_VECTOR (15 DOWNTO 0);
-                 signal zs_dqm_from_the_sdram : BUFFER STD_LOGIC_VECTOR (1 DOWNTO 0);
-                 signal zs_ras_n_from_the_sdram : OUT STD_LOGIC;
-                 signal zs_we_n_from_the_sdram : OUT STD_LOGIC
+					  signal zs_dqm_from_the_sdram : BUFFER STD_LOGIC_VECTOR (1 DOWNTO 0);
+					  signal zs_ras_n_from_the_sdram : OUT STD_LOGIC;
+				     signal zs_we_n_from_the_sdram : OUT STD_LOGIC;
+
+-- PWM motor outputs
+					  signal motor_pwm_pwm_right : OUT STD_LOGIC;
+					  signal motor_pwm_dir_left  : OUT STD_LOGIC;
+					  signal motor_pwm_dir_right : OUT STD_LOGIC;
+					  signal motor_pwm_pwm_left  : OUT STD_LOGIC
+
               );
 	end component;
 	
@@ -248,8 +261,14 @@ NiosII : nios_system
 		zs_dq_to_and_from_the_sdram				=> DRAM_DQ,
 		zs_dqm_from_the_sdram					=> DQM,
 		zs_ras_n_from_the_sdram					=> DRAM_RAS_N,
-		zs_we_n_from_the_sdram					=> DRAM_WE_N
-	);
+		zs_we_n_from_the_sdram					=> DRAM_WE_N,
+
+-- PWM motor outputs
+		motor_pwm_pwm_right                      => MOTOR_PWM_RIGHT,
+		motor_pwm_dir_left                       => MOTOR_DIR_LEFT,
+		motor_pwm_dir_right                      => MOTOR_DIR_RIGHT,
+		motor_pwm_pwm_left                       => MOTOR_PWM_LEFT
+);
 	
 neg_3ns : sdram_pll
 	port map (

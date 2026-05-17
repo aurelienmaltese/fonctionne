@@ -30,7 +30,11 @@
 			HEX1_from_the_HEX3_HEX0              : out   std_logic_vector(6 downto 0);                     -- HEX1
 			HEX2_from_the_HEX3_HEX0              : out   std_logic_vector(6 downto 0);                     -- HEX2
 			HEX3_from_the_HEX3_HEX0              : out   std_logic_vector(6 downto 0);                     -- HEX3
-			to_hex_readdata                      : out   std_logic_vector(15 downto 0)                     -- readdata
+			to_hex_readdata                      : out   std_logic_vector(15 downto 0);                    -- readdata
+			motor_pwm_pwm_right                  : out   std_logic;                                        -- pwm_right
+			motor_pwm_dir_left                   : out   std_logic;                                        -- dir_left
+			motor_pwm_dir_right                  : out   std_logic;                                        -- dir_right
+			motor_pwm_pwm_left                   : out   std_logic                                         -- pwm_left
 		);
 	end component nios_system;
 

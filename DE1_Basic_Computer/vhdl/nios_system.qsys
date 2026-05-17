@@ -186,19 +186,6 @@
          type = "long";
       }
    }
-   element Slider_switches.avalon_parallel_port_slave
-   {
-      datum _lockedAddress
-      {
-         value = "1";
-         type = "boolean";
-      }
-      datum baseAddress
-      {
-         value = "268435520";
-         type = "long";
-      }
-   }
    element Green_LEDs.avalon_parallel_port_slave
    {
       datum _lockedAddress
@@ -210,6 +197,14 @@
       {
          value = "268435472";
          type = "long";
+      }
+   }
+   element Pushbuttons.avalon_parallel_port_slave
+   {
+      datum _lockedAddress
+      {
+         value = "1";
+         type = "boolean";
       }
    }
    element Red_LEDs.avalon_parallel_port_slave
@@ -225,23 +220,20 @@
          type = "long";
       }
    }
-   element Pushbuttons.avalon_parallel_port_slave
+   element Slider_switches.avalon_parallel_port_slave
    {
       datum _lockedAddress
       {
          value = "1";
          type = "boolean";
+      }
+      datum baseAddress
+      {
+         value = "268435520";
+         type = "long";
       }
    }
    element Expansion_JP1.avalon_parallel_port_slave
-   {
-      datum _lockedAddress
-      {
-         value = "1";
-         type = "boolean";
-      }
-   }
-   element Expansion_JP2.avalon_parallel_port_slave
    {
       datum _lockedAddress
       {
@@ -262,6 +254,14 @@
          type = "long";
       }
    }
+   element Expansion_JP2.avalon_parallel_port_slave
+   {
+      datum _lockedAddress
+      {
+         value = "1";
+         type = "boolean";
+      }
+   }
    element Serial_port.avalon_rs232_slave
    {
       datum _lockedAddress
@@ -277,9 +277,22 @@
    }
    element reg16_avalon_interface_0.avalon_slave_0
    {
+      datum _lockedAddress
+      {
+         value = "1";
+         type = "boolean";
+      }
       datum baseAddress
       {
          value = "8388608";
+         type = "String";
+      }
+   }
+   element pwm_avalon_interface_0.avalon_slave_0
+   {
+      datum baseAddress
+      {
+         value = "8388624";
          type = "String";
       }
    }
@@ -333,25 +346,20 @@
          type = "long";
       }
    }
+   element pwm_avalon_interface_0
+   {
+      datum _sortIndex
+      {
+         value = "16";
+         type = "int";
+      }
+   }
    element reg16_avalon_interface_0
    {
       datum _sortIndex
       {
          value = "15";
          type = "int";
-      }
-   }
-   element Onchip_memory.s1
-   {
-      datum _lockedAddress
-      {
-         value = "1";
-         type = "boolean";
-      }
-      datum baseAddress
-      {
-         value = "150994944";
-         type = "long";
       }
    }
    element sdram.s1
@@ -377,6 +385,19 @@
       datum baseAddress
       {
          value = "268443648";
+         type = "long";
+      }
+   }
+   element Onchip_memory.s1
+   {
+      datum _lockedAddress
+      {
+         value = "1";
+         type = "boolean";
+      }
+      datum baseAddress
+      {
+         value = "150994944";
          type = "long";
       }
    }
@@ -426,7 +447,7 @@
  <parameter name="projectName">DE1_Basic_Computer.qpf</parameter>
  <parameter name="sopcBorderPoints" value="false" />
  <parameter name="systemHash" value="1" />
- <parameter name="timeStamp" value="1779035702469" />
+ <parameter name="timeStamp" value="1779042674852" />
  <parameter name="useTestBenchNamingPattern" value="false" />
  <instanceScript></instanceScript>
  <interface
@@ -526,6 +547,11 @@
  <interface
    name="to_hex"
    internal="reg16_avalon_interface_0.conduit_end"
+   type="conduit"
+   dir="end" />
+ <interface
+   name="motor_pwm"
+   internal="pwm_avalon_interface_0.conduit_end"
    type="conduit"
    dir="end" />
  <module kind="clock_source" version="13.0" enabled="1" name="clk">
@@ -884,7 +910,7 @@
   <parameter name="tightlyCoupledInstructionMaster2AddrWidth" value="1" />
   <parameter name="tightlyCoupledInstructionMaster3AddrWidth" value="1" />
   <parameter name="instSlaveMapParam"><![CDATA[<address-map><slave name='sdram.s1' start='0x0' end='0x800000' /><slave name='SRAM.avalon_sram_slave' start='0x8000000' end='0x8080000' /><slave name='Onchip_memory.s1' start='0x9000000' end='0x9002000' /><slave name='cpu.jtag_debug_module' start='0xA000000' end='0xA000800' /></address-map>]]></parameter>
-  <parameter name="dataSlaveMapParam"><![CDATA[<address-map><slave name='sdram.s1' start='0x0' end='0x800000' /><slave name='reg16_avalon_interface_0.avalon_slave_0' start='0x800000' end='0x800002' /><slave name='SRAM.avalon_sram_slave' start='0x8000000' end='0x8080000' /><slave name='Onchip_memory.s2' start='0x9000000' end='0x9002000' /><slave name='cpu.jtag_debug_module' start='0xA000000' end='0xA000800' /><slave name='Red_LEDs.avalon_parallel_port_slave' start='0x10000000' end='0x10000010' /><slave name='Green_LEDs.avalon_parallel_port_slave' start='0x10000010' end='0x10000020' /><slave name='HEX3_HEX0.avalon_parallel_port_slave' start='0x10000020' end='0x10000030' /><slave name='Slider_switches.avalon_parallel_port_slave' start='0x10000040' end='0x10000050' /><slave name='Pushbuttons.avalon_parallel_port_slave' start='0x10000050' end='0x10000060' /><slave name='Expansion_JP1.avalon_parallel_port_slave' start='0x10000060' end='0x10000070' /><slave name='Expansion_JP2.avalon_parallel_port_slave' start='0x10000070' end='0x10000080' /><slave name='JTAG_UART.avalon_jtag_slave' start='0x10001000' end='0x10001008' /><slave name='Serial_port.avalon_rs232_slave' start='0x10001010' end='0x10001018' /><slave name='Interval_timer.s1' start='0x10002000' end='0x10002020' /></address-map>]]></parameter>
+  <parameter name="dataSlaveMapParam"><![CDATA[<address-map><slave name='sdram.s1' start='0x0' end='0x800000' /><slave name='reg16_avalon_interface_0.avalon_slave_0' start='0x800000' end='0x800002' /><slave name='pwm_avalon_interface_0.avalon_slave_0' start='0x800010' end='0x800020' /><slave name='SRAM.avalon_sram_slave' start='0x8000000' end='0x8080000' /><slave name='Onchip_memory.s2' start='0x9000000' end='0x9002000' /><slave name='cpu.jtag_debug_module' start='0xA000000' end='0xA000800' /><slave name='Red_LEDs.avalon_parallel_port_slave' start='0x10000000' end='0x10000010' /><slave name='Green_LEDs.avalon_parallel_port_slave' start='0x10000010' end='0x10000020' /><slave name='HEX3_HEX0.avalon_parallel_port_slave' start='0x10000020' end='0x10000030' /><slave name='Slider_switches.avalon_parallel_port_slave' start='0x10000040' end='0x10000050' /><slave name='Pushbuttons.avalon_parallel_port_slave' start='0x10000050' end='0x10000060' /><slave name='Expansion_JP1.avalon_parallel_port_slave' start='0x10000060' end='0x10000070' /><slave name='Expansion_JP2.avalon_parallel_port_slave' start='0x10000070' end='0x10000080' /><slave name='JTAG_UART.avalon_jtag_slave' start='0x10001000' end='0x10001008' /><slave name='Serial_port.avalon_rs232_slave' start='0x10001010' end='0x10001018' /><slave name='Interval_timer.s1' start='0x10002000' end='0x10002020' /></address-map>]]></parameter>
   <parameter name="clockFrequency" value="50000000" />
   <parameter name="deviceFamilyName" value="Cyclone II" />
   <parameter name="internalIrqMaskSystemInfo" value="7427" />
@@ -903,7 +929,14 @@
    kind="reg16_avalon_interface"
    version="1.0"
    enabled="1"
-   name="reg16_avalon_interface_0" />
+   name="reg16_avalon_interface_0">
+  <parameter name="AUTO_CLOCK_SINK_CLOCK_RATE" value="50000000" />
+ </module>
+ <module
+   kind="pwm_avalon_interface"
+   version="1.0"
+   enabled="1"
+   name="pwm_avalon_interface_0" />
  <connection kind="clock" version="13.0" start="clk.clk" end="cpu.clk" />
  <connection kind="clock" version="13.0" start="clk.clk" end="Onchip_memory.clk2" />
  <connection kind="clock" version="13.0" start="clk.clk" end="Onchip_memory.clk1" />
@@ -1308,6 +1341,25 @@
    version="13.0"
    start="clk.clk_reset"
    end="reg16_avalon_interface_0.reset_sink" />
+ <connection
+   kind="clock"
+   version="13.0"
+   start="clk.clk"
+   end="pwm_avalon_interface_0.clock_sink" />
+ <connection
+   kind="reset"
+   version="13.0"
+   start="clk.clk_reset"
+   end="pwm_avalon_interface_0.reset_sink" />
+ <connection
+   kind="avalon"
+   version="13.0"
+   start="cpu.data_master"
+   end="pwm_avalon_interface_0.avalon_slave_0">
+  <parameter name="arbitrationPriority" value="1" />
+  <parameter name="baseAddress" value="0x00800010" />
+  <parameter name="defaultConnection" value="false" />
+ </connection>
  <interconnectRequirement for="$system" name="qsys_mm.clockCrossingAdapter" value="HANDSHAKE" />
  <interconnectRequirement for="$system" name="qsys_mm.maxAdditionalLatency" value="0" />
 </system>
