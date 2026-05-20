@@ -1,0 +1,112 @@
+# ========================================
+# Quartus/Altera FPGA Generated Files
+# ========================================
+
+# Compilation output files
+*.sof
+*.pof
+*.rbf
+
+# Report files
+*.rpt
+*.smsg
+*.summary
+*.done
+*.sta.summary
+*.map.summary
+*.fit.summary
+
+# Quartus workspace and settings
+*.qws
+*.qip_qsys_deps
+
+# Database and temporary directories
+db/
+incremental_db/
+output_files/
+/simulation/
+
+# Generated system files
+nios_system/
+v1/
+
+# Backup files
+*.bak
+*~
+
+# ========================================
+# Verilog/VHDL Simulation & Build
+# ========================================
+
+# ModelSim/QuestaSim
+work/
+*.vcd
+*.wdb
+*.mti
+*.mtx
+
+# Generic simulation output
+*.vvp
+*.vvp.d
+*.o
+*.so
+
+# ========================================
+# IDE and Editor Files
+# ========================================
+
+# VS Code
+.vscode/
+*.code-workspace
+
+# Vim
+*.swp
+*.swo
+*~
+
+# Sublime
+*.sublime-project
+*.sublime-workspace
+
+# ========================================
+# OS Specific Files
+# ========================================
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# Linux
+.directory
+
+# ========================================
+# Build and Compilation Artifacts
+# ========================================
+
+# C/C++ Build
+*.elf
+*.hex
+*.bin
+*.axf
+*.map
+*.lst
+
+# Object files
+*.a
+*.lib
+*.obj
+*.out
+
+# ========================================
+# Other Temporary Files
+# ========================================
+
+*.log
+.git-ignore-me
